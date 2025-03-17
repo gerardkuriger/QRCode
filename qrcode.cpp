@@ -15,12 +15,35 @@
 
 using namespace std;
 
-// struct qrcode
-// {
-//     int version;
-//     char type;
-//     char[][] qrcode_data; 
-// };
+class qrcode
+{
+public:
+    char type;
+    int version;
+
+    int set_version(int version);
+
+    int get_size()
+    {
+        return get_size(get_version());
+    }
+
+    int get_size(int version)
+    {
+        return (17 + (version * 4));
+    }
+
+    int get_version()
+    {
+        return version;
+    }
+
+    
+};
+
+
+
+
 
 
 int main(int argc, char const *argv[])
@@ -33,16 +56,3 @@ int main(int argc, char const *argv[])
     printf("Message: %s\n", argv[1]);
     return 0;
 }
-
-
-int get_size(int version)
-{
-    return (17 + (version * 4));
-}
-
-int get_version();
-void ser_version(int p);
-
-char get_typr();
-void set_type();
-
